@@ -1,0 +1,17 @@
+function hideRows() {
+
+  var ss = SpreadsheetApp.getActiveSpreadsheet();
+  var sheet = ss.getSheetByName("sheet1")
+  var lastRow  = sheet.getLastRow();
+
+  for(var i=2; i<=lastRow; i++){
+    var saleRep = sheet.getRange(i,2).getValue();
+    var slaes = sheet.getRange(i,6).getValue();
+
+    if(!saleRep || slaes<70){
+      sheet.hideRows(i)
+    }
+     
+  } 
+  
+}
